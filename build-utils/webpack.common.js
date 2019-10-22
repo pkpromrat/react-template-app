@@ -3,15 +3,20 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  // Make sure react-hot-loader is required before react and react-dom.
+  // https://github.com/gaearon/react-hot-loader#getting-started
   entry: ['react-hot-loader/patch', './src/index.js'],
   module: {
     rules: [
       {
+        // Do linting by eslint and then transpiling by babel for Javascript files.
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader', 'eslint-loader'],
       },
       {
+        // First collecting css files and generating string. (css-loader)
+        // Then take the generated string and put it in style tag in the HTML page. (style-loader)
         test: /\.css$/,
         use: [
           {
@@ -30,21 +35,29 @@ module.exports = {
     ],
   },
   resolve: {
+    // Enable `import` without extension.
+    // https://webpack.js.org/configuration/resolve/#resolveextensions
     extensions: ['*', '.js', '.jsx'],
     alias: {
+      // Support React Hook
+      // https://github.com/gaearon/react-hot-loader#hot-loaderreact-dom
       'react-dom': '@hot-loader/react-dom',
     },
   },
   plugins: [
+    // Remove/Clean build folder.
+    // https://github.com/johnagan/clean-webpack-plugin
     new CleanWebpackPlugin(),
+    // Create HTML files for bundles.
+    // https://github.com/jantimon/html-webpack-plugin
     new HtmlWebpackPlugin({
-      title: 'Taxd',
+      title: 'React Template App',
       template: './src/index.html',
     }),
   ],
   output: {
+    // This path need to be relative to this file.
     path: path.resolve(__dirname, '../', 'dist'),
     publicPath: '/',
-    filename: '[name].[contenthash].js',
   },
 };
