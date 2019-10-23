@@ -17,7 +17,10 @@ const Main = () => {
         alignItems: 'center',
       }}
     >
-      <div>
+      <div style={{ fontSize: 24, fontWeight: 'bold' }}>
+        The spectacle before us was indeed sublime
+      </div>
+      <div style={{ margin: '40px 0' }}>
         {count}
         <button
           type="button"

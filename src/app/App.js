@@ -16,14 +16,23 @@ const App = ({ title }) => {
     >
       <div
         style={{
-          fontWeight: 'bold',
-          fontSize: '16px',
+          height: 60,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           background: '#3f3f3f',
-          textAlign: 'center',
-          color: 'white',
         }}
       >
-        {title}
+        <div
+          style={{
+            fontWeight: 'bold',
+            fontSize: '16px',
+            textAlign: 'center',
+            color: 'white',
+          }}
+        >
+          {title}
+        </div>
       </div>
       <Main />
     </div>

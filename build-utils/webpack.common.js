@@ -33,7 +33,13 @@ module.exports = {
         ],
       },
       {
+        // https://webpack.js.org/guides/asset-management/#loading-images
         test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader'],
+      },
+      {
+        // https://webpack.js.org/guides/asset-management/#loading-fonts
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: ['file-loader'],
       },
     ],
