@@ -4,7 +4,7 @@ module.exports = {
   mode: 'production',
   devtool: 'source-map',
   output: {
-    // Code spliting to supports browser caching.
+    // Caching.
     // https://webpack.js.org/guides/caching/
     filename: '[name].[contenthash].js',
   },
