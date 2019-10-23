@@ -39,7 +39,7 @@ module.exports = {
     // https://webpack.js.org/configuration/resolve/#resolveextensions
     extensions: ['*', '.js', '.jsx'],
     alias: {
-      // Support React Hook
+      // Support React Hook.
       // https://github.com/gaearon/react-hot-loader#hot-loaderreact-dom
       'react-dom': '@hot-loader/react-dom',
     },
