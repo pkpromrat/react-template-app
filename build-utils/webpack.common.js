@@ -6,6 +6,21 @@ module.exports = {
   // Make sure react-hot-loader is required before react and react-dom.
   // https://github.com/gaearon/react-hot-loader#getting-started
   entry: ['react-hot-loader/patch', './src/index.js'],
+  resolve: {
+    // Provide `src` for aliases which support absolute import.
+    modules: ['node_modules', 'src'],
+    // Enable `import` without extension.
+    // https://webpack.js.org/configuration/resolve/#resolveextensions
+    extensions: ['*', '.js', '.jsx'],
+    // Aliases
+    alias: {
+      // Support React Hook.
+      // https://github.com/gaearon/react-hot-loader#hot-loaderreact-dom
+      'react-dom': '@hot-loader/react-dom',
+      // Absolute Imports, need to be set to an absolute path.
+      app: path.resolve('src/app'),
+    },
+  },
   module: {
     rules: [
       {
@@ -44,16 +59,6 @@ module.exports = {
       },
     ],
   },
-  resolve: {
-    // Enable `import` without extension.
-    // https://webpack.js.org/configuration/resolve/#resolveextensions
-    extensions: ['*', '.js', '.jsx'],
-    alias: {
-      // Support React Hook.
-      // https://github.com/gaearon/react-hot-loader#hot-loaderreact-dom
-      'react-dom': '@hot-loader/react-dom',
-    },
-  },
   plugins: [
     // Remove/Clean build folder.
     // https://github.com/johnagan/clean-webpack-plugin
@@ -66,8 +71,8 @@ module.exports = {
     }),
   ],
   output: {
-    // This path need to be relative to this file.
-    path: path.resolve(__dirname, '../', 'dist'),
+    // This path need to be an absolute path.
+    path: path.resolve('dist'),
     publicPath: '/',
   },
 };

@@ -15,4 +15,16 @@
     "react/jsx-filename-extension": 0,
     "import/no-extraneous-dependencies": 0,
   },
+
+  // Lint module resolver using webpack config.
+  // This help make absolute import by using webpack aliases.
+  // https://github.com/benmosher/eslint-plugin-import
+  // https://github.com/benmosher/eslint-plugin-import/tree/master/resolvers/webpack#eslint-import-resolver-webpack
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "./build-utils/webpack.common.js" 
+      }
+    }
+  }
 }
