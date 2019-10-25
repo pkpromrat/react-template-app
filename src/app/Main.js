@@ -1,8 +1,8 @@
 import React from 'react';
 
-import pngImg from '../images/pngImg.png';
-import jpgImg from '../images/jpgImg.jpg';
-import svgImg from '../images/svgImg.svg';
+import pngImg from 'images/pngImg.png';
+import jpgImg from 'images/jpgImg.jpg';
+import svgImg from 'images/svgImg.svg';
 
 const Main = () => {
   const [count, setCount] = React.useState(0);

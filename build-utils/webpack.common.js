@@ -7,7 +7,8 @@ module.exports = {
   // https://github.com/gaearon/react-hot-loader#getting-started
   entry: ['react-hot-loader/patch', './src/index.js'],
   resolve: {
-    // Provide `src` for aliases which support absolute import.
+    // Provide `src` to support absolute import.
+    // https://webpack.js.org/configuration/resolve/#resolvemodules
     modules: ['node_modules', 'src'],
     // Enable `import` without extension.
     // https://webpack.js.org/configuration/resolve/#resolveextensions
@@ -17,8 +18,6 @@ module.exports = {
       // Support React Hook.
       // https://github.com/gaearon/react-hot-loader#hot-loaderreact-dom
       'react-dom': '@hot-loader/react-dom',
-      // Absolute Imports, need to be set to an absolute path.
-      app: path.resolve('src/app'),
     },
   },
   module: {
